@@ -1,11 +1,19 @@
 pages:
   - type: info
     title: "Willkommen beim QUIZZ Tool"
-    text: "Dies ist ein Beispiel für eine Informationsseite. Auf der rechten Seite sehen Sie ein Bild, während dieser Text die linke Hälfte einnimmt. Klicken Sie auf den Button, um fortzufahren."
+    text: "Dies ist ein Beispiel für eine Informationsseite. Auf der rechten Seite sehen Sie ein Bild, während dieser Text die linke Hälfte ausfüllt. Klicken Sie auf den Button, um fortzufahren."
     image: "/static/images/placeholder_info.png"
 
+  - type: input
+    title: "Bevor wir beginnen"
+    text: "Bitte geben Sie Ihr Alter an, damit wir das Quiz für Sie anpassen können."
+    label: "Wie alt sind Sie?"
+    min: 1
+    max: 120
+    image: "/static/images/placeholder_info2.png"
+
   - type: quiz
-    question: "Welches Bild zeigt eine Katze?"
+    question: "Welches Bild zeigt die Farbe Rot?"
     image_left: "/static/images/placeholder_quiz1.png"
     image_right: "/static/images/placeholder_quiz2.png"
     answer_left: "Bild links"

@@ -29,6 +29,13 @@ Das Frontend stellt einer vordefinierten Reihenfolge nach jeweils eine der folge
   - [x] Findet automatisch die vorherige Quizseite (oder über `ref_page` konfigurierbar)
   - [x] Speichert selbst keine Daten in der CSV
 
+- [x] Input-Page:
+  Eine Seite mit Text und einem Eingabefeld für Zahlen.
+  - [x] Zeigt einen beschreibenden Text und ein optionales Bild
+  - [x] Eingabefeld mit konfigurierbarem Label, Min- und Max-Werten
+  - [x] Speichert den eingegebenen Zahlenwert direkt in der CSV
+  - [x] Beispiel: Altersabfrage vor dem Quiz
+
 - [x] Responsive Design:
   Alle Seiten sind für verschiedene Bildschirmgrößen optimiert
   - [x] Mobile-optimiert (Stapelung bei schmalen Bildschirmen)
@@ -39,9 +46,9 @@ Das Frontend stellt einer vordefinierten Reihenfolge nach jeweils eine der folge
 Das Backend beinhaltet folgende Funktionen:
 
 - [x] Die Ausgewählten Antworten sollen, pro Durchlauf mit einer UUID versehen, in einer CSV abgelegt werden
-  - [x] Nur Quizseiten werden in der CSV gespeichert (nicht Info/Feedback)
-  - [x] CSV speichert nur "richtig" oder "falsch" (nicht den tatsächlichen Antworttext)
-  - [x] Jede Spalte repräsentiert eine Quizseite (quiz_0, quiz_1, etc.)
+  - [x] Quizseiten speichern "richtig" oder "falsch" (nicht den tatsächlichen Antworttext)
+  - [x] Input-Seiten speichern den eingegebenen Zahlenwert direkt
+  - [x] Jede Spalte repräsentiert eine Quiz- oder Input-Seite (quiz_0, quiz_1, ..., input_0, input_1, etc.)
   - [x] File-Locking für gleichzeitige Zugriffe mehrerer Nutzer
 
 - [x] Die Reihenfolge sowie der Inhalt der seiten sollen einer YAML datei eintnommen werden.

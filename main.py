@@ -67,6 +67,10 @@ def get_quiz_indices(pages):
     return [i for i, p in enumerate(pages) if p["type"] == "quiz"]
 
 
+def get_input_indices(pages):
+    return [i for i, p in enumerate(pages) if p["type"] == "input"]
+
+
 def find_previous_quiz_page(pages, page_index):
     for i in range(page_index - 1, -1, -1):
         if pages[i]["type"] == "quiz":
@@ -81,14 +85,26 @@ def page_index_to_quiz_col(pages, page_index):
     return None
 
 
+def page_index_to_input_col(pages, page_index):
+    quiz_indices = get_quiz_indices(pages)
+    input_indices = get_input_indices(pages)
+    if page_index in input_indices:
+        return len(quiz_indices) + input_indices.index(page_index) + 1
+    return None
+
+
 def save_answer(session_id: str, page_index: int, answer: str, yaml_file=None):
     csv_file = get_csv_file(yaml_file or "pages.yaml")
     pages = load_pages(yaml_file)
     quiz_indices = get_quiz_indices(pages)
+    input_indices = get_input_indices(pages)
     num_quizzes = len(quiz_indices)
-    header = ["session_id"] + [f"quiz_{i}" for i in range(num_quizzes)]
+    num_inputs = len(input_indices)
+    header = ["session_id"] + [f"quiz_{i}" for i in range(num_quizzes)] + [f"input_{i}" for i in range(num_inputs)]
 
     col = page_index_to_quiz_col(pages, page_index)
+    if col is None:
+        col = page_index_to_input_col(pages, page_index)
     if col is None:
         return
 
@@ -109,7 +125,7 @@ def save_answer(session_id: str, page_index: int, answer: str, yaml_file=None):
                     break
 
             if session_row is None:
-                new_row = [""] * (num_quizzes + 1)
+                new_row = [""] * (num_quizzes + num_inputs + 1)
                 new_row[0] = session_id
                 new_row[col] = answer
                 rows.append(new_row)
@@ -170,6 +186,13 @@ async def get_page(request: Request, page_index: int):
             "is_last": is_last,
             "is_correct": is_correct,
         })
+    elif page["type"] == "input":
+        return templates.TemplateResponse(request, "inputpage.html", {
+            "page": page,
+            "page_index": page_index,
+            "next_index": page_index + 1,
+            "is_last": is_last,
+        })
 
 
 @app.post("/answer/{page_index}", response_class=HTMLResponse)
@@ -182,13 +205,15 @@ async def answer(request: Request, page_index: int):
     pages = load_pages(yaml_file)
     page = pages[page_index]
     
-    is_correct = ""
+    save_value = ""
     if page["type"] == "quiz" and "correct_answer" in page:
         correct = page["correct_answer"]
-        is_correct = "richtig" if answer == correct else "falsch"
+        save_value = "richtig" if answer == correct else "falsch"
+    elif page["type"] == "input":
+        save_value = answer
 
     if page.get("save", True):
-        save_answer(session_id, page_index, is_correct, yaml_file)
+        save_answer(session_id, page_index, save_value, yaml_file)
 
     next_index = page_index + 1
     redirect_url = "/" if next_index >= len(pages) else f"/page/{next_index}"
