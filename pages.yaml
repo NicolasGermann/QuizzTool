@@ -5,8 +5,7 @@ pages:
     image: "/static/images/placeholder_info.png"
 
   - type: quiz
-    save: false
-    question: "Welches Bild zeigt Rot?"
+    question: "Welches Bild zeigt eine Katze?"
     image_left: "/static/images/placeholder_quiz1.png"
     image_right: "/static/images/placeholder_quiz2.png"
     answer_left: "Bild links"
