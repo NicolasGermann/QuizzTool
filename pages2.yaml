@@ -1,41 +1,41 @@
 pages:
   - type: info
-    title: "Tier-Quiz"
-    text: "Willkommen zum Tier-Quiz! Testen Sie Ihr Wissen über verschiedene Tiere. Sie werden Fragen zu verschiedenen Tieren beantworten und erhalten anschließend Feedback zu Ihren Antworten."
+    title: "Farbe-Quiz"
+    text: "Willkommen zum Farb-Quiz2! Testen Sie Ihr Wissen über verschiedene Farben. Sie werden Fragen zu verschiedenen Farben beantworten und erhalten anschließend Feedback zu Ihren Antworten."
     image: "/static/images/placeholder_info.png"
 
   - type: quiz
-    question: "Welches dieser Tiere ist ein Säugetier?"
+    question: "Welches dieser Farben ist Rot?"
     image_left: "/static/images/placeholder_quiz1.png"
     image_right: "/static/images/placeholder_quiz2.png"
-    answer_left: "Tier links"
-    answer_right: "Tier rechts"
+    answer_left: "Farbe links"
+    answer_right: "Farbe rechts"
     correct_answer: "left"
 
   - type: quiz_feedback
     title_correct: "Perfekt!"
-    text_correct: "Richtig! Das linke Tier ist tatsächlich ein Säugetier."
+    text_correct: "Richtig! Das linke Farbe ist tatsächlich Rot."
     title_wrong: "Nicht ganz"
-    text_wrong: "Leider falsch. Das linke Tier ist ein Säugetier, nicht das rechte."
+    text_wrong: "Leider falsch. Das linke Farbe ist Grün."
     image: "/static/images/placeholder_feedback.png"
 
   - type: quiz
-    question: "Welches Tier kann fliegen?"
+    question: "Welches Farbe ist Okker?"
     image_left: "/static/images/placeholder_quiz3.png"
     image_right: "/static/images/placeholder_quiz4.png"
-    answer_left: "Tier links"
-    answer_right: "Tier rechts"
+    answer_left: "Farbe links"
+    answer_right: "Farbe rechts"
     correct_answer: "right"
 
   - type: quiz_feedback
     title_correct: "Ausgezeichnet!"
-    text_correct: "Korrekt! Das rechte Tier kann tatsächlich fliegen."
+    text_correct: "Korrekt!"
     title_wrong: "Leider nicht"
-    text_wrong: "Das war nicht richtig. Das rechte Tier kann fliegen."
+    text_wrong: "Das war nicht richtig!"
     image: "/static/images/placeholder_feedback2.png"
 
   - type: quiz
-    question: "Ist dieses Tier ein Fleischfresser?"
+    question: "Ist dieses Farbe ein Rot?"
     image_left: "/static/images/placeholder_quiz1.png"
     answer_left: "Ja"
     answer_right: "Nein"
@@ -43,12 +43,12 @@ pages:
 
   - type: quiz_feedback
     title_correct: "Stimmt genau!"
-    text_correct: "Richtig! Dieses Tier ist tatsächlich ein Fleischfresser."
+    text_correct: "Richtig!"
     title_wrong: "Nicht korrekt"
-    text_wrong: "Leider falsch. Dieses Tier ist ein Fleischfresser."
+    text_wrong: "Leider falsch."
     image: "/static/images/placeholder_feedback.png"
 
   - type: info
     title: "Quiz abgeschlossen!"
-    text: "Vielen Dank für Ihre Teilnahme am Tier-Quiz! Ihre Antworten wurden gespeichert. Wir hoffen, es hat Ihnen Spaß gemacht."
+    text: "Vielen Dank für Ihre Teilnahme am Farbe-Quiz! Ihre Antworten wurden gespeichert. Wir hoffen, es hat Ihnen Spaß gemacht."
     image: "/static/images/placeholder_thanks.png"
