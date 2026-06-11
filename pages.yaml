@@ -5,6 +5,7 @@ pages:
     image: "/static/images/placeholder_info.png"
 
   - type: quiz
+    save: false
     question: "Welches Bild zeigt eine Katze?"
     image_left: "/static/images/placeholder_quiz1.png"
     image_right: "/static/images/placeholder_quiz2.png"
@@ -25,6 +26,7 @@ pages:
     image: "/static/images/placeholder_info2.png"
 
   - type: quiz
+    save: true
     question: "Welches Bild zeigt einen Hund?"
     image_left: "/static/images/placeholder_quiz3.png"
     image_right: "/static/images/placeholder_quiz4.png"
@@ -33,6 +35,7 @@ pages:
     correct_answer: "right"
 
   - type: quiz
+    save: true
     question: "Ist dies eine Katze?"
     image_left: "/static/images/placeholder_quiz1.png"
     answer_left: "Ja"

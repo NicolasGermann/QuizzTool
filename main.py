@@ -57,6 +57,13 @@ def get_quiz_indices(pages):
     return [i for i, p in enumerate(pages) if p["type"] == "quiz"]
 
 
+def find_previous_quiz_page(pages, page_index):
+    for i in range(page_index - 1, -1, -1):
+        if pages[i]["type"] == "quiz":
+            return i
+    return page_index - 1
+
+
 def page_index_to_quiz_col(pages, page_index):
     quiz_indices = get_quiz_indices(pages)
     if page_index in quiz_indices:
@@ -139,7 +146,7 @@ async def get_page(request: Request, page_index: int):
         })
     elif page["type"] == "quiz_feedback":
         session_id = request.cookies.get("session_id", "")
-        ref_page = page.get("ref_page", page_index - 1)
+        ref_page = page.get("ref_page", find_previous_quiz_page(pages, page_index))
         answer_result = read_answer(session_id, ref_page)
         is_correct = answer_result == "richtig"
         return templates.TemplateResponse(request, "feedbackpage.html", {
@@ -165,7 +172,8 @@ async def answer(request: Request, page_index: int):
         correct = page["correct_answer"]
         is_correct = "richtig" if answer == correct else "falsch"
 
-    save_answer(session_id, page_index, is_correct)
+    if page.get("save", True):
+        save_answer(session_id, page_index, is_correct)
 
     next_index = page_index + 1
     redirect_url = "/" if next_index >= len(pages) else f"/page/{next_index}"
