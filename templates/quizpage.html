@@ -1,41 +1,90 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="display: flex; flex-direction: column; height: 100vh;">
-    <div style="flex: 1; display: flex;">
-        <div style="flex: 1; padding: 1rem;">
-            <img src="{{ page.image_left }}" alt="Option A" style="width: 100%; height: 100%; object-fit: contain;">
+<style>
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .quiz-images {
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: 0;
+    }
+    .quiz-images > div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+        min-width: 0;
+        padding: 0.5rem;
+    }
+    .quiz-images.single-image > div {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .quiz-images img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .quiz-answers {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+    .quiz-answers h2 { text-align: center; }
+    .quiz-buttons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .quiz-buttons form { display: inline; }
+    @media (max-width: 768px), (max-aspect-ratio: 1/1) {
+        .quiz-images { flex-direction: column; }
+        .quiz-buttons { flex-direction: column; gap: 1rem; width: 100%; }
+        .quiz-buttons form { width: 100%; }
+        .quiz-buttons button { width: 100%; }
+        .quiz-answers { padding: 1.5rem; }
+    }
+</style>
+<div class="quiz-container">
+    {% set has_two_images = page.image_left and page.image_right %}
+    <div class="quiz-images{% if not has_two_images %} single-image{% endif %}">
+        {% if page.image_left %}
+        <div>
+            <img src="{{ page.image_left }}" alt="Option A">
         </div>
-        <div style="flex: 1; padding: 1rem;">
-            <img src="{{ page.image_right }}" alt="Option B" style="width: 100%; height: 100%; object-fit: contain;">
+        {% endif %}
+        {% if page.image_right %}
+        <div>
+            <img src="{{ page.image_right }}" alt="Option B">
         </div>
+        {% endif %}
     </div>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem;">
-        <h2 style="margin-bottom: 2rem;">{{ page.question }}</h2>
-        <div style="display: flex; gap: 2rem;">
-            <form hx-post="/answer/{{ page_index }}" hx-swap="none" style="display: inline;">
-                <input type="hidden" name="answer" value="left">
-                <button type="submit" style="
-                    padding: 1rem 2rem;
-                    font-size: 1.1rem;
-                    background: #2563eb;
-                    color: white;
-                    border: none;
-                    border-radius: 0.375rem;
-                    cursor: pointer;
-                ">{{ page.answer_left }}</button>
+    <div class="quiz-answers">
+        <h2>{{ page.question }}</h2>
+        <div class="quiz-buttons">
+            {% if page.answer_left %}
+            <form hx-post="/answer/{{ page_index }}" hx-swap="none">
+                <input type="hidden" name="answer" value="{{ 'left' if has_two_images else page.answer_left }}">
+                <button type="submit" class="btn btn-primary btn-lg">{{ page.answer_left }}</button>
             </form>
-            <form hx-post="/answer/{{ page_index }}" hx-swap="none" style="display: inline;">
-                <input type="hidden" name="answer" value="right">
-                <button type="submit" style="
-                    padding: 1rem 2rem;
-                    font-size: 1.1rem;
-                    background: #2563eb;
-                    color: white;
-                    border: none;
-                    border-radius: 0.375rem;
-                    cursor: pointer;
-                ">{{ page.answer_right }}</button>
+            {% endif %}
+            {% if page.answer_right %}
+            <form hx-post="/answer/{{ page_index }}" hx-swap="none">
+                <input type="hidden" name="answer" value="{{ 'right' if has_two_images else page.answer_right }}">
+                <button type="submit" class="btn btn-primary btn-lg">{{ page.answer_right }}</button>
             </form>
+            {% endif %}
         </div>
     </div>
 </div>

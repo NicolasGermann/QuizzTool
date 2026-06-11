@@ -1,35 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="display: flex; height: 100vh;">
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 2rem;">
-        <h1 style="margin-bottom: 1rem;">{{ page.title }}</h1>
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">{{ page.text }}</p>
+<style>
+    .info-container {
+        display: flex;
+        min-height: 100vh;
+    }
+    .info-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        min-width: 0;
+    }
+    .info-text h1 { margin-bottom: 1rem; word-wrap: break-word; }
+    .info-text p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .info-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+        padding: 1rem;
+        min-width: 0;
+    }
+    .info-image img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+    @media (max-width: 768px), (max-aspect-ratio: 1/1) {
+        .info-container { flex-direction: column; }
+        .info-text { padding: 1.5rem; }
+        .info-image { min-height: 40vh; }
+    }
+</style>
+<div class="info-container">
+    <div class="info-text">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.text }}</p>
         {% if not is_last %}
-        <a href="/page/{{ next_index }}" style="
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.375rem;
-            font-size: 1rem;
-            width: fit-content;
-        ">Weiter</a>
+        <a href="/page/{{ next_index }}" class="btn btn-primary">Weiter</a>
         {% else %}
-        <a href="/" style="
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #16a34a;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.375rem;
-            font-size: 1rem;
-            width: fit-content;
-        ">Fertig</a>
+        <a href="/" class="btn btn-success">Fertig</a>
         {% endif %}
     </div>
-    <div style="flex: 1;">
-        <img src="{{ page.image }}" alt="{{ page.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="info-image">
+        <img src="{{ page.image }}" alt="{{ page.title }}">
     </div>
 </div>
 {% endblock %}

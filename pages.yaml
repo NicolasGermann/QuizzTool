@@ -32,6 +32,13 @@ pages:
     answer_right: "Bild rechts"
     correct_answer: "right"
 
+  - type: quiz
+    question: "Ist dies eine Katze?"
+    image_left: "/static/images/placeholder_quiz1.png"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "Ja"
+
   - type: info
     title: "Vielen Dank!"
     text: "Sie haben alle Fragen beantwortet. Ihre Antworten wurden gespeichert."
