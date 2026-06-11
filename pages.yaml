@@ -1,0 +1,38 @@
+pages:
+  - type: info
+    title: "Willkommen beim QUIZZ Tool"
+    text: "Dies ist ein Beispiel für eine Informationsseite. Auf der rechten Seite sehen Sie ein Bild, während dieser Text die linke Hälfte einnimmt. Klicken Sie auf den Button, um fortzufahren."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt eine Katze?"
+    image_left: "/static/images/placeholder_quiz1.png"
+    image_right: "/static/images/placeholder_quiz2.png"
+    answer_left: "Bild links"
+    answer_right: "Bild rechts"
+    correct_answer: "left"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Sie haben die richtige Antwort gewählt. Das linke Bild zeigt tatsächlich eine Katze."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die richtige Antwort wäre 'Bild links' gewesen. Das linke Bild zeigt eine Katze."
+    image: "/static/images/placeholder_feedback.png"
+
+  - type: info
+    title: "Zusätzliche Information"
+    text: "Hier ist eine weitere Informationsseite. Das System unterstützt beliebig viele Seiten in beliebiger Reihenfolge."
+    image: "/static/images/placeholder_info2.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt einen Hund?"
+    image_left: "/static/images/placeholder_quiz3.png"
+    image_right: "/static/images/placeholder_quiz4.png"
+    answer_left: "Bild links"
+    answer_right: "Bild rechts"
+    correct_answer: "right"
+
+  - type: info
+    title: "Vielen Dank!"
+    text: "Sie haben alle Fragen beantwortet. Ihre Antworten wurden gespeichert."
+    image: "/static/images/placeholder_thanks.png"
