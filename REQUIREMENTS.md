@@ -36,6 +36,15 @@ Das Frontend stellt einer vordefinierten Reihenfolge nach jeweils eine der folge
   - [x] Speichert den eingegebenen Zahlenwert direkt in der CSV
   - [x] Beispiel: Altersabfrage vor dem Quiz
 
+- [x] Slider-Page:
+  Eine Seite mit Text und beliebig vielen Schiebereglern.
+  - [x] Zeigt einen beschreibenden Text und ein optionales Bild
+  - [x] Beliebige Anzahl an Schiebereglern konfigurierbar
+  - [x] Jeder Regler hat konfigurierbaren Text, Min- und Max-Wert
+  - [x] Live-Anzeige des aktuellen Wertes
+  - [x] Speichert alle Slider-Werte in separaten CSV-Spalten
+  - [x] Beispiel: Selbsteinschätzung mit mehreren Skalen
+
 - [x] Responsive Design:
   Alle Seiten sind für verschiedene Bildschirmgrößen optimiert
   - [x] Mobile-optimiert (Stapelung bei schmalen Bildschirmen)
@@ -48,7 +57,8 @@ Das Backend beinhaltet folgende Funktionen:
 - [x] Die Ausgewählten Antworten sollen, pro Durchlauf mit einer UUID versehen, in einer CSV abgelegt werden
   - [x] Quizseiten speichern "richtig" oder "falsch" (nicht den tatsächlichen Antworttext)
   - [x] Input-Seiten speichern den eingegebenen Zahlenwert direkt
-  - [x] Jede Spalte repräsentiert eine Quiz- oder Input-Seite (quiz_0, quiz_1, ..., input_0, input_1, etc.)
+  - [x] Slider-Seiten speichern jeden Regler-Wert in einer eigenen Spalte
+  - [x] Jede Spalte repräsentiert eine Quiz-, Input- oder Slider-Seite (quiz_0, ..., input_0, ..., slider_0, ...)
   - [x] File-Locking für gleichzeitige Zugriffe mehrerer Nutzer
 
 - [x] Die Reihenfolge sowie der Inhalt der seiten sollen einer YAML datei eintnommen werden.

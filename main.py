@@ -71,6 +71,18 @@ def get_input_indices(pages):
     return [i for i, p in enumerate(pages) if p["type"] == "input"]
 
 
+def get_slider_indices(pages):
+    return [i for i, p in enumerate(pages) if p["type"] == "slider"]
+
+
+def count_total_sliders(pages):
+    total = 0
+    for p in pages:
+        if p["type"] == "slider":
+            total += len(p.get("sliders", []))
+    return total
+
+
 def find_previous_quiz_page(pages, page_index):
     for i in range(page_index - 1, -1, -1):
         if pages[i]["type"] == "quiz":
@@ -93,18 +105,41 @@ def page_index_to_input_col(pages, page_index):
     return None
 
 
+def page_index_to_slider_col(pages, page_index):
+    quiz_indices = get_quiz_indices(pages)
+    input_indices = get_input_indices(pages)
+    slider_indices = get_slider_indices(pages)
+    
+    if page_index in slider_indices:
+        base_col = len(quiz_indices) + len(input_indices) + 1
+        slider_offset = 0
+        for idx in slider_indices:
+            if idx == page_index:
+                return base_col + slider_offset
+            slider_offset += len(pages[idx].get("sliders", []))
+    return None
+
+
 def save_answer(session_id: str, page_index: int, answer: str, yaml_file=None):
     csv_file = get_csv_file(yaml_file or "pages.yaml")
     pages = load_pages(yaml_file)
     quiz_indices = get_quiz_indices(pages)
     input_indices = get_input_indices(pages)
+    slider_indices = get_slider_indices(pages)
     num_quizzes = len(quiz_indices)
     num_inputs = len(input_indices)
-    header = ["session_id"] + [f"quiz_{i}" for i in range(num_quizzes)] + [f"input_{i}" for i in range(num_inputs)]
+    total_sliders = count_total_sliders(pages)
+    
+    header = (["session_id"] + 
+              [f"quiz_{i}" for i in range(num_quizzes)] + 
+              [f"input_{i}" for i in range(num_inputs)] +
+              [f"slider_{i}" for i in range(total_sliders)])
 
     col = page_index_to_quiz_col(pages, page_index)
     if col is None:
         col = page_index_to_input_col(pages, page_index)
+    if col is None:
+        col = page_index_to_slider_col(pages, page_index)
     if col is None:
         return
 
@@ -125,12 +160,65 @@ def save_answer(session_id: str, page_index: int, answer: str, yaml_file=None):
                     break
 
             if session_row is None:
-                new_row = [""] * (num_quizzes + num_inputs + 1)
+                new_row = [""] * (num_quizzes + num_inputs + total_sliders + 1)
                 new_row[0] = session_id
                 new_row[col] = answer
                 rows.append(new_row)
             else:
                 rows[session_row][col] = answer
+
+            with open(csv_file, "w", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow(header)
+                writer.writerows(rows[1:] if rows and rows[0][0] == "session_id" else rows)
+        finally:
+            fcntl.flock(lf.fileno(), fcntl.LOCK_UN)
+
+
+def save_slider_answers(session_id: str, page_index: int, values: list, yaml_file=None):
+    csv_file = get_csv_file(yaml_file or "pages.yaml")
+    pages = load_pages(yaml_file)
+    quiz_indices = get_quiz_indices(pages)
+    input_indices = get_input_indices(pages)
+    slider_indices = get_slider_indices(pages)
+    num_quizzes = len(quiz_indices)
+    num_inputs = len(input_indices)
+    total_sliders = count_total_sliders(pages)
+    
+    header = (["session_id"] + 
+              [f"quiz_{i}" for i in range(num_quizzes)] + 
+              [f"input_{i}" for i in range(num_inputs)] +
+              [f"slider_{i}" for i in range(total_sliders)])
+
+    base_col = page_index_to_slider_col(pages, page_index)
+    if base_col is None:
+        return
+
+    lock_file = csv_file.with_suffix(".lock")
+    with open(lock_file, "w") as lf:
+        fcntl.flock(lf.fileno(), fcntl.LOCK_EX)
+        try:
+            rows = []
+            if csv_file.exists():
+                with open(csv_file, "r", newline="", encoding="utf-8") as f:
+                    reader = csv.reader(f)
+                    rows = list(reader)
+
+            session_row = None
+            for i, row in enumerate(rows):
+                if row and row[0] == session_id:
+                    session_row = i
+                    break
+
+            if session_row is None:
+                new_row = [""] * (num_quizzes + num_inputs + total_sliders + 1)
+                new_row[0] = session_id
+                for idx, value in enumerate(values):
+                    new_row[base_col + idx] = value
+                rows.append(new_row)
+            else:
+                for idx, value in enumerate(values):
+                    rows[session_row][base_col + idx] = value
 
             with open(csv_file, "w", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
@@ -193,6 +281,13 @@ async def get_page(request: Request, page_index: int):
             "next_index": page_index + 1,
             "is_last": is_last,
         })
+    elif page["type"] == "slider":
+        return templates.TemplateResponse(request, "sliderpage.html", {
+            "page": page,
+            "page_index": page_index,
+            "next_index": page_index + 1,
+            "is_last": is_last,
+        })
 
 
 @app.post("/answer/{page_index}", response_class=HTMLResponse)
@@ -211,6 +306,15 @@ async def answer(request: Request, page_index: int):
         save_value = "richtig" if answer == correct else "falsch"
     elif page["type"] == "input":
         save_value = answer
+    elif page["type"] == "slider":
+        slider_values = []
+        for i in range(len(page.get("sliders", []))):
+            slider_values.append(form.get(f"slider_{i}", ""))
+        if page.get("save", True):
+            save_slider_answers(session_id, page_index, slider_values, yaml_file)
+        next_index = page_index + 1
+        redirect_url = "/" if next_index >= len(pages) else f"/page/{next_index}"
+        return Response(headers={"HX-Redirect": redirect_url})
 
     if page.get("save", True):
         save_answer(session_id, page_index, save_value, yaml_file)
