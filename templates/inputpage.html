@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .input-container {
+        display: flex;
+        min-height: 100vh;
+    }
+    .input-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        min-width: 0;
+    }
+    .input-content h1 { margin-bottom: 1rem; word-wrap: break-word; }
+    .input-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .input-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 400px;
+    }
+    .input-form label {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .input-form input[type="number"] {
+        padding: 0.75rem;
+        font-size: 1.1rem;
+        border: 2px solid #d1d5db;
+        border-radius: 0.375rem;
+        width: 100%;
+    }
+    .input-form input[type="number"]:focus {
+        outline: none;
+        border-color: #2563eb;
+    }
+    .input-form button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        width: fit-content;
+    }
+    .input-form button:hover {
+        background: #1d4ed8;
+    }
+    .input-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+        padding: 1rem;
+        min-width: 0;
+    }
+    .input-image img {
+        max-width: 100%;
+        max-height: 66.67vh;
+        object-fit: contain;
+    }
+    @media (max-width: 768px), (max-aspect-ratio: 1/1) {
+        .input-container { flex-direction: column; }
+        .input-content { padding: 1.5rem; }
+        .input-image { min-height: 40vh; }
+        .input-form { max-width: 100%; }
+    }
+</style>
+<div class="input-container">
+    <div class="input-content">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.text }}</p>
+        <form class="input-form" hx-post="/answer/{{ page_index }}" hx-swap="none">
+            <label for="input_value">{{ page.label }}</label>
+            <input 
+                type="number" 
+                id="input_value" 
+                name="answer" 
+                {% if page.min is defined %}min="{{ page.min }}"{% endif %}
+                {% if page.max is defined %}max="{{ page.max }}"{% endif %}
+                required
+            >
+            <button type="submit">Weiter</button>
+        </form>
+    </div>
+    {% if page.image %}
+    <div class="input-image">
+        <img src="{{ page.image }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
