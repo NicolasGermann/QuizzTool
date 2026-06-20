@@ -14,7 +14,11 @@
         min-width: 0;
     }
     .info-text h1 { margin-bottom: 1rem; word-wrap: break-word; }
-    .info-text p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .info-text p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; white-space: pre-wrap; }
+    .info-text.full-width {
+        max-width: 900px;
+        margin: 0 auto;
+    }
     .info-image {
         flex: 1;
         display: flex;
@@ -36,17 +40,17 @@
     }
 </style>
 <div class="info-container">
-    <div class="info-text">
+    <div class="info-text{% if not page.image %} full-width{% endif %}">
         <h1>{{ page.title }}</h1>
         <p>{{ page.text }}</p>
         {% if not is_last %}
         <a href="/page/{{ next_index }}" class="btn btn-primary">Weiter</a>
-        {% else %}
-        <a href="/" class="btn btn-success">Fertig</a>
         {% endif %}
     </div>
+    {% if page.image %}
     <div class="info-image">
         <img src="{{ page.image }}" alt="{{ page.title }}">
     </div>
+    {% endif %}
 </div>
 {% endblock %}

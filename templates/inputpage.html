@@ -14,7 +14,7 @@
         min-width: 0;
     }
     .input-content h1 { margin-bottom: 1rem; word-wrap: break-word; }
-    .input-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .input-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; white-space: pre-wrap; }
     .input-form {
         display: flex;
         flex-direction: column;
@@ -84,7 +84,9 @@
                 {% if page.max is defined %}max="{{ page.max }}"{% endif %}
                 required
             >
+            {% if not is_last %}
             <button type="submit">Weiter</button>
+            {% endif %}
         </form>
     </div>
     {% if page.image %}

@@ -1,5 +1,9 @@
 pages:
   - type: info
+    title: "Datenschutzerklärung"
+    text: "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Im Rahmen dieses Quiz werden folgende Daten erhoben:\n\n• Session-ID: Eine zufällig generierte, eindeutige Kennung zur Zuordnung Ihrer Antworten\n• Quiz-Antworten: Ihre Auswahl bei den Quizfragen (richtig/falsch)\n• Eingaben: Von Ihnen eingegebene Zahlenwerte und Slider-Einstellungen\n\nDiese Daten werden ausschließlich für statistische Auswertungen und zur Verbesserung des Quiz verwendet. Es werden keine personenbezogenen Daten wie Name, E-Mail oder IP-Adresse gespeichert.\n\nMit dem Klicken auf 'Weiter' stimmen Sie der Datenverarbeitung zu. Sie können das Quiz jederzeit abbrechen, indem Sie das Browserfenster schließen."
+
+  - type: info
     title: "Willkomen bei -Ki oder Nicht-"
     text: "In diesem Quiz geht es darum, ob sie Ki-generierte Bilder von echten unterscheiden können."
     image: "/static/images/placeholder_info.png"
@@ -10,6 +14,14 @@ pages:
     label: "Wie alt sind Sie?"
     min: 1
     max: 120
+    image: "/static/images/placeholder_info.png"
+    
+  - type: input
+    title: "Bevor wir beginnen"
+    text: "* 1: Männlich \n* 2: Weiblich \n* 3: Divers"
+    label: "Welchem Geschlecht ordnen sie sich zu?"
+    min: 1
+    max: 3
     image: "/static/images/placeholder_info.png"
 
   - type: info

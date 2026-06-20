@@ -14,7 +14,7 @@
         min-width: 0;
     }
     .feedback-text h1 { margin-bottom: 1rem; word-wrap: break-word; }
-    .feedback-text p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .feedback-text p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; white-space: pre-wrap; }
     .feedback-text .correct { color: #16a34a; }
     .feedback-text .wrong { color: #dc2626; }
     .feedback-image {
@@ -48,8 +48,6 @@
         {% endif %}
         {% if not is_last %}
         <a href="/page/{{ next_index }}" class="btn btn-primary">Weiter</a>
-        {% else %}
-        <a href="/" class="btn btn-success">Fertig</a>
         {% endif %}
     </div>
     <div class="feedback-image">

@@ -14,7 +14,7 @@
         min-width: 0;
     }
     .slider-content h1 { margin-bottom: 1rem; word-wrap: break-word; }
-    .slider-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+    .slider-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; white-space: pre-wrap; }
     .slider-form {
         display: flex;
         flex-direction: column;
@@ -115,7 +115,9 @@
                 <span class="slider-value" id="value_{{ loop.index0 }}">{{ slider.min }}</span>
             </div>
             {% endfor %}
+            {% if not is_last %}
             <button type="submit">Weiter</button>
+            {% endif %}
         </form>
     </div>
     {% if page.image %}

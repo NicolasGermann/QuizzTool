@@ -12,6 +12,7 @@ Das Frontend stellt einer vordefinierten Reihenfolge nach jeweils eine der folge
   Eine Infopage beinhaltet eine Textbox, und ein Bild, welches die rechte Hälfte des Bildschirms einnimmt, wärend 
   der Text die linke Hälfte ausfüllt.
   Außerdem beinhaltet die Seite einen Kleinen Knopf, um auf die nächste Seite fortzufahren.
+  - [x] Optional: Ohne Bild nimmt der Text die volle Breite ein (z.B. für Datenschutzerklärungen)
   
 - [x] Quizzpage:
   Die Quizzpage präsentiert in der oberen Bildschirmhälfte ein oder zwei Bilder.
@@ -72,8 +73,4 @@ Bitte füge für jeden Typen eine Beispielseite ein, an der man die Funktionswei
 - [x] Beispielseiten für Quiz-Feedback-Page erstellt
 - [x] Beispiel für Quiz mit einem Bild
 - [x] Zweite YAML-Datei mit anderem Aufbau (Tier-Quiz)
-
-## Docker
-- [x] Dockerfile für einfachen Deployment
-- [x] Volume-Mount für persistente CSV-Daten (/app/data)
 
