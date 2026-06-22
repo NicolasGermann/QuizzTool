@@ -33,8 +33,8 @@ pages:
     question: "Welches Bild zeigt dieses Merkmal?"
     image_left: "/static/images/0005.jpg"
     image_right: "/static/images/0148.jpg"
-    answer_left: "Bild links"
-    answer_right: "Bild rechts"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
     correct_answer: "left"
 
   - type: quiz_feedback
@@ -53,8 +53,8 @@ pages:
     question: "Welches Bild zeigt dieses Merkmal?"
     image_left: "/static/images/0027.jpg"
     image_right: "/static/images/0099.jpg"
-    answer_left: "Bild links"
-    answer_right: "Bild rechts"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
     correct_answer: "left"
     
   - type: quiz_feedback
@@ -84,7 +84,7 @@ pages:
     title: "Bewertung"
     text: "Wie Bewerten sie die Erfahrung mit unserem Trainingstool"
     sliders:
-      - label: "Hatten sie den Eindruck, das Tool hat ihnen Geholfen?"
+      - label: Hatten sie den Eindruck, die Erkennungsmerkmale zu Beginn haben ihnen geholfen?""
         min: 1
         max: 7
       - label: "Wie bewerten sie ihre Leistung"
