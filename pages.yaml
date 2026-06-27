@@ -25,60 +25,184 @@ pages:
     image: "/static/images/placeholder_info.png"
 
   - type: info
-    title: "Realismus"
-    text: "Überprüfen Sie, ob das Bild realistische Szenarien darstellt oder auf übertriebene, unwahrscheinliche Ereignisse setzt. Sehr extreme Darstellungen können ein Hinweis auf eine KI-Generierung sein, um Meinungsbildung zu betreiben."
-    image: "/static/images/placeholder_info.png"
-    
-  - type: quiz
-    question: "Welches Bild zeigt dieses Merkmal?"
-    image_left: "/static/images/0005.jpg"
-    image_right: "/static/images/0148.jpg"
-    answer_left: "Erstes Bild"
-    answer_right: "Zweites Bild"
-    correct_answer: "left"
-
-  - type: quiz_feedback
-    title_correct: "Richtig!"
-    text_correct: "Sie haben die richtige Antwort gewählt."
-    title_wrong: "Leider falsch"
-    text_wrong: "Die richtige Antwort wäre 'Bild links' gewesen."
-    image: "/static/images/0005.jpg"
-
-  - type: info
     title: "Darstellung von Details"
     text: "Achten Sie auf unscharfe Details oder fehlerhafte, komplexe Strukturen. Prüfen Sie, ob Schmuck und Accessoires verzerrt wirken oder unnatürliche Kanten aufweisen. Besonders im Hintergrund sind Details wie Bildschirme oft verschwommen oder nicht zusammenpassend. Generell kann ein übermäßig unscharfer Hintergrund ein Hinweis auf KI-Erzeugung sein."
     image: "/static/images/placeholder_info.png"
     
   - type: quiz
     question: "Welches Bild zeigt dieses Merkmal?"
-    image_left: "/static/images/0027.jpg"
-    image_right: "/static/images/0099.jpg"
+    image_left: "/static/images/Detail.png"
+    image_right: "/static/images/Detail.jpg"
     answer_left: "Erstes Bild"
     answer_right: "Zweites Bild"
     correct_answer: "left"
-    
+
   - type: quiz_feedback
     title_correct: "Richtig!"
-    text_correct: "Sie haben die richtige Antwort gewählt."
+    text_correct: "Sowohl die Form einiger Fenster als auch des Baugerüsts ergeben keinen Sinn."
     title_wrong: "Leider falsch"
-    text_wrong: "Die richtige Antwort wäre 'Bild links' gewesen."
-    image: "/static/images/0027.jpg"
+    text_wrong: "Sowohl die Form einiger Fenster als auch des Baugerüsts ergeben keinen Sinn."
+    image: "/static/images/Detail.png"
+    
+  - type: info
+    title: "Hände"
+    text: "Überprüfen Sie die Anzahl der Finger, deren Proportionen und Anordnung. Fehler bei der Darstellung von Händen sind ein klassisches Merkmal KI-generierter Bilder."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/Finger.webp"
+    image_right: "/static/images/Finger.png"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "right"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Die Anatomie der Hand ist falsch."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die Anatomie der Hand ist falsch."
+    image: "/static/images/Finger.png"
+
+  - type: info
+    title: "Proportionen und Geometrie"
+    text: "Achten Sie auf natürliche Größenverhältnisse und korrekte Geometrie im Bild. Unnatürliche Proportionen (z.B. Körperformen, Extremitäten etc.) oder verzerrte Formen können starke Indikatoren für eine KI-Erzeugung sein."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/Geometrie.png"
+    image_right: "/static/images/Geometrie.webp"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "left"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Das Bild zeigt eine verzerrte Landschaft."
+    title_wrong: "Leider falsch"
+    text_wrong: "Das Bild zeigt eine verzerrte Landschaft."
+    image: "/static/images/Geometrie.png"
+
+  - type: info
+    title: "Übergänge und Muster"
+    text: "Prüfen Sie Übergänge zwischen Mustern und Texturen (z. B.  Stuck an der Decke, Verzierungen o.ä.) auf abrupt unterbrochene oder unnatürliche Verläufe. Solche Fehler treten oft bei komplexen Texturen auf. Insbesondere wenn ein Objekt ein anderes Objekt überdeckt, passt die Fortführung im Hintergrund nicht immer zusammen."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/Pattern.webp"
+    image_right: "/static/images/Pattern.png"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "right"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Das Muster des Fußbodens ist nicht gleichmäßig."
+    title_wrong: "Leider falsch"
+    text_wrong: "Das Muster des Fußbodens ist nicht gleichmäßig."
+    image: "/static/images/Pattern.png"
+
+  - type: info
+    title: "Reflexionen und Schatten"
+    text: "Kontrollieren Sie, ob Lichtreflexionen und Schatten konsistent und physikalisch plausibel wirken. Unstimmigkeiten im Schattenwurf oder nur teilweise vorhandene Reflexionen deuten auf ein KI-generiertes Bild hin."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/Reflection.png"
+    image_right: "/static/images/Reflection.webp"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "left"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Die Markierungen des Parkplatzes spiegeln sich nicht im Auto."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die Markierungen des Parkplatzes spiegeln sich nicht im Auto."
+    image: "/static/images/Reflection.png"
+
+  - type: info
+    title: "Texte"
+    text: "Manche KI-Bildgeneratoren haben Schwierigkeiten, Text korrekt darzustellen.  Kontrollieren Sie, ob Texte auf Schildern oder anderen Objekten korrekt und schlüssig dargestellt werden. Rechtschreibfehler und unstimmige Proportionen können ebenso wie unscharfe Buchstaben oder inkonsistente Farben auf KI-Erzeugung hindeuten."
+    image: "/static/images/placeholder_info.png"
+
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/Text.webp"
+    image_right: "/static/images/Text.png"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "right"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Die Texte auf den Zeitungen sind nicht lesbar."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die Texte auf den Zeitungen sind nicht lesbar."
+    image: "/static/images/Text.png"
+
+  - type: info
+    title: "Fluchtpunkt"
+    text: "KI-generierte Bilder verraten sich manchmal durch falsche Perspektiven. Linien, die in der Realität parallel „nach hinten“ (nicht parallel zum oberen und unteren Bildrand) verlaufen (z.B. bei Tischkanten, Bodenfliesen, Straßen etc.), sollten sich bei gedachter Verlängerung in genau einem Punkt – dem Fluchtpunkt – am Horizont schneiden. Bei KI-Bildern ist die Perspektive manchmal unnatürlich oder uneinheitlich und die gedachten Linien schneiden sich in unterschiedlichen Punkten."
+    image: "/static/images/placeholder_info.png"
     
   - type: quiz
-    save: true
-    question: "Ist dieses Bild Ki-Generiert?"
-    image_left: "/static/images/0006.jpg"
-    answer_left: "Ja"
-    answer_right: "Nein"
-    correct_answer: "Nein"
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/VanishingPoint.png"
+    image_right: "/static/images/VanishingPoint.webp"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "left"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Die Linien fluchten nicht in einem Punkt."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die Linien fluchten nicht in einem Punkt."
+    image: "/static/images/VanishingPoint.png"
+
+  - type: info
+    title: "Physikalische Phänomene"
+    text: "Vergewissern Sie sich, dass Objekte korrekt positioniert sind – etwa, dass sie nicht in der Luft schweben, Wasser nach unten fließt etc. "
+    image: "/static/images/placeholder_info.png"
     
   - type: quiz
-    save: true
-    question: "Ist dieses Bild Ki-Generiert?"
-    image_left: "/static/images/0067.jpg"
-    answer_left: "Ja"
-    answer_right: "Nein"
-    correct_answer: "Ja"
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/physik.webp"
+    image_right: "/static/images/physik.png"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "right"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Die Lampe an der Decke schwebt."
+    title_wrong: "Leider falsch"
+    text_wrong: "Die Lampe an der Decke schwebt."
+    image: "/static/images/physik.png"
+
+  - type: info
+    title: "Realismus"
+    text: "Überprüfen Sie, ob das Bild realistische Szenarien darstellt oder auf übertriebene, unwahrscheinliche Ereignisse setzt. Sehr extreme Darstellungen können ein Hinweis auf eine KI-Generierung sein, um Meinungsbildung zu betreiben."
+    image: "/static/images/placeholder_info.png"
+    
+  - type: quiz
+    question: "Welches Bild zeigt dieses Merkmal?"
+    image_left: "/static/images/realism.png"
+    image_right: "/static/images/realism.webp"
+    answer_left: "Erstes Bild"
+    answer_right: "Zweites Bild"
+    correct_answer: "left"
+
+  - type: quiz_feedback
+    title_correct: "Richtig!"
+    text_correct: "Der Dieselpreis ist nicht realistisch."
+    title_wrong: "Leider falsch"
+    text_wrong: "Der Dieselpreis ist nicht realistisch."
+    image: "/static/images/realism.png"
 
   - type: slider
     title: "Bewertung"

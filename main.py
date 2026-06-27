@@ -18,7 +18,12 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
-YAML_FILES = ["pages.yaml", "pages2.yaml"]
+DEFAULT_YAML_FILES = ["pages.yaml", "pages2.yaml"]
+
+
+def get_available_yaml_files():
+    available = [name for name in DEFAULT_YAML_FILES if (BASE_DIR / name).exists()]
+    return available if available else ["pages.yaml"]
 
 
 def get_csv_file(yaml_file):
@@ -231,7 +236,7 @@ def save_slider_answers(session_id: str, page_index: int, values: list, yaml_fil
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     session_id = str(uuid.uuid4())
-    yaml_file = random.choice(YAML_FILES)
+    yaml_file = random.choice(get_available_yaml_files())
     response = RedirectResponse(url="/page/0")
     response.set_cookie("session_id", session_id)
     response.set_cookie("yaml_file", yaml_file)
