@@ -275,6 +275,11 @@ def save_slider_answers(session_id: str, page_index: int, values: list, yaml_fil
             fcntl.flock(lf.fileno(), fcntl.LOCK_UN)
 
 
+@app.get("/impressum", response_class=HTMLResponse)
+async def impressum(request: Request):
+    return templates.TemplateResponse(request, "impressum.html", {})
+
+
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     session_id = str(uuid.uuid4())
