@@ -89,6 +89,47 @@ def count_total_sliders(pages):
     return total
 
 
+def count_correct_actual_quiz_answers(session_id: str, pages: list, csv_file: Path):
+    quiz_indices = get_quiz_indices(pages)
+    actual_quiz_indices = [
+        i for i in quiz_indices
+        if pages[i].get("image_left", "").startswith("/image_data/")
+    ]
+    total = len(actual_quiz_indices)
+    if total == 0 or not csv_file.exists():
+        return 0, total
+
+    lock_file = csv_file.with_suffix(".lock")
+    with open(lock_file, "w") as lf:
+        fcntl.flock(lf.fileno(), fcntl.LOCK_SH)
+        try:
+            with open(csv_file, "r", newline="", encoding="utf-8") as f:
+                reader = csv.reader(f)
+                rows = list(reader)
+        finally:
+            fcntl.flock(lf.fileno(), fcntl.LOCK_UN)
+
+    if not rows:
+        return 0, total
+
+    session_row = None
+    for row in rows[1:]:
+        if row and row[0] == session_id:
+            session_row = row
+            break
+
+    if session_row is None:
+        return 0, total
+
+    correct = 0
+    for page_index in actual_quiz_indices:
+        col = page_index_to_quiz_col(pages, page_index)
+        if col is not None and col < len(session_row) and session_row[col] == "richtig":
+            correct += 1
+
+    return correct, total
+
+
 def find_previous_quiz_page(pages, page_index):
     for i in range(page_index - 1, -1, -1):
         if pages[i]["type"] == "quiz":
@@ -255,12 +296,21 @@ async def get_page(request: Request, page_index: int):
     is_last = page_index >= len(pages) - 1
 
     if page["type"] == "info":
-        return templates.TemplateResponse(request, "infopage.html", {
+        context = {
             "page": page,
             "page_index": page_index,
             "next_index": page_index + 1,
             "is_last": is_last,
-        })
+        }
+        if is_last:
+            session_id = request.cookies.get("session_id", "")
+            csv_file = get_csv_file(yaml_file)
+            correct, total = count_correct_actual_quiz_answers(session_id, pages, csv_file)
+            percentage = round((correct / total) * 100) if total > 0 else 0
+            context["correct_count"] = correct
+            context["total_count"] = total
+            context["percentage"] = percentage
+        return templates.TemplateResponse(request, "infopage.html", context)
     elif page["type"] == "quiz":
         return templates.TemplateResponse(request, "quizpage.html", {
             "page": page,

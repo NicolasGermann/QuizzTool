@@ -33,6 +33,18 @@
         max-height: 66.67vh;
         object-fit: contain;
     }
+    .score-box {
+        background: #f3f4f6;
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .score-box strong {
+        font-size: 1.5rem;
+        color: #2563eb;
+    }
     @media (max-width: 768px), (max-aspect-ratio: 1/1) {
         .info-container { flex-direction: column; }
         .info-text { padding: 1.5rem; }
@@ -43,6 +55,11 @@
     <div class="info-text{% if not page.image %} full-width{% endif %}">
         <h1>{{ page.title }}</h1>
         <p>{{ page.text }}</p>
+        {% if is_last %}
+        <div class="score-box">
+            <p>Sie haben <strong>{{ percentage }}%</strong> der Fragen richtig beantwortet ({{ correct_count }} von {{ total_count }}).</p>
+        </div>
+        {% endif %}
         {% if not is_last %}
         <a href="/page/{{ next_index }}" class="btn btn-primary">Weiter</a>
         {% endif %}
