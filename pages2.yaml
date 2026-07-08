@@ -1,0 +1,186 @@
+pages:
+  - type: info
+    title: "Datenschutzerklärung"
+    text: "Die folgende Studie \"Ki oder Nicht?\" ist Teil einer studentischen Forschungsarbeit im Rahmen der Veranstaltung „Empirical Evaluation of Interactive Systems“ an der Hochschule für Technik und Wirtschaft des Saarlandes.\n Die Teilnahme an der Studie ist freiwillig. Die Einwilligung zur Teilnahme an dieser Studie kann jederzeit und ohne Angabe von Gründen bis zum Ende der Datenerhebung widerrufen werden, indem die Umfrage durch das Schließen des Browserfensters beendet wird. Alle unvollständigen Datensätze werden von uns gelöscht. Nach dem Ende der Datenerhebung können die gesetzlichen Rechte auf Widerruf, Auskunft, Berichtigung, Sperrung und Löschung nicht mehr wahrgenommen werden, weil die Daten nicht mehr der betroffenen Person zugeordnet werden können.\n Nach der Einwilligung zur Datenerfassung werden folgende Daten erhoben und ausschließlich anonymisiert verarbeitet:\n -	Eingaben in der Onlineumfrage\n Aus technischen Gründen werden u.a. folgende Daten, die vom Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt werden, erfasst (sogenannte Serverlogfiles): \n -	Browsertyp und -version\n -	verwendetes Betriebssystem\n -	Webseite, von der zuvor besucht wurde (Referrer URL)\n -	Datum und Uhrzeit des Zugriffs\n -	Die IP-Adresse.\n Diese anonymen Daten werden nicht mit den Umfragedaten zusammengeführt."
+
+  - type: info
+    title: "Willkomen bei -Ki oder Nicht-"
+    text: "In diesem Quiz geht es darum, ob sie -nach einem Training- Ki-generierte Bilder von echten unterscheiden können."
+    image: "/static/images/placeholder_info.png"
+
+  - type: input
+    title: "Bevor wir beginnen"
+    text: "Bitte geben Sie Ihr Alter an."
+    label: "Wie alt sind Sie?"
+    min: 1
+    max: 120
+    image: "/static/images/placeholder_info.png"
+    
+  - type: input
+    title: "Bevor wir beginnen"
+    text: "* 1: Männlich \n* 2: Weiblich \n* 3: Divers"
+    label: "Welchem Geschlecht ordnen sie sich zu?"
+    min: 1
+    max: 3
+    image: "/static/images/placeholder_info.png"
+
+  - type: info
+    title: "Erkennungsmerkmale für KI-Generierte Bilder"
+    text: |
+      - Realismus: Überprüfen Sie, ob das Bild realistische Szenarien darstellt oder auf übertriebene, unwahrscheinliche Ereignisse setzt. Sehr extreme Darstellungen können ein Hinweis auf eine KI-Generierung sein, um Meinungsbildung zu betreiben.
+
+      - Darstellung von Details: Achten Sie auf unscharfe Details oder fehlerhafte, komplexe Strukturen. Prüfen Sie, ob Schmuck und Accessoires verzerrt wirken oder unnatürliche Kanten aufweisen. Besonders im Hintergrund sind Details wie Bildschirme oft verschwommen oder nicht zusammenpassend. Generell kann ein übermäßig unscharfer Hintergrund ein Hinweis auf KI-Erzeugung sein.
+
+      - Reflexionen und Schatten: Kontrollieren Sie, ob Lichtreflexionen und Schatten konsistent und physikalisch plausibel wirken. Unstimmigkeiten im Schattenwurf oder nur teilweise vorhandene Reflexionen deuten auf ein KI-generiertes Bild hin.
+
+      - Übergänge und Muster: Prüfen Sie Übergänge zwischen Mustern und Texturen (z.  B.  Stuck an der Decke, Verzierungen o.ä.) auf abrupt unterbrochene oder unnatürliche Verläufe. Solche Fehler treten oft bei komplexen Texturen auf. Insbesondere wenn ein Objekt ein anderes Objekt überdeckt, passt die Fortführung im Hintergrund nicht immer zusammen.
+
+      - Physikalische Phänomene: Vergewissern Sie sich, dass Objekte korrekt positioniert sind – etwa, dass sie nicht in der Luft schweben, Wasser nach unten fließt etc.
+
+      - Proportionen und Geometrie: Achten Sie auf natürliche Größenverhältnisse und korrekte Geometrie im Bild. Unnatürliche Proportionen (z.B. Körperformen, Extremitäten etc.) oder verzerrte Formen können starke Indikatoren für eine KI-Erzeugung sein.
+
+      - Fluchtpunkt: KI-generierte Bilder verraten sich manchmal durch falsche Perspektiven. Linien, die in der Realität parallel „nach hinten“ (nicht parallel zum oberen und unteren Bildrand) verlaufen (z.B. bei Tischkanten, Bodenfliesen, Straßen etc.), sollten sich bei gedachter Verlängerung in genau einem Punkt – dem Fluchtpunkt – am Horizont schneiden. Bei KI-Bildern ist die Perspektive manchmal unnatürlich oder uneinheitlich und die gedachten Linien schneiden sich in unterschiedlichen Punkten.
+
+      - Hände: Überprüfen Sie die Anzahl der Finger, deren Proportionen und Anordnung. Fehler bei der Darstellung von Händen sind ein klassisches Merkmal KI-generierter Bilder.
+
+      - Gesichter: Analysieren Sie Gesichter auf unnatürliche Symmetrie oder fehlerhafte Details bei Augen, Ohren, Haaransatz und Zähnen.
+
+      - Texte: Manche KI-Bildgeneratoren haben Schwierigkeiten, Text korrekt darzustellen.  Kontrollieren Sie, ob Texte auf Schildern oder anderen Objekten korrekt und schlüssig dargestellt werden. Rechtschreibfehler und unstimmige Proportionen können ebenso wie unscharfe Buchstaben oder inkonsistente Farben auf KI-Erzeugung hindeuten.
+
+  - type: slider
+    title: "Bewertung"
+    text: "Wie Bewerten sie die Erfahrung mit unserem Trainingstool"
+    sliders:
+      - label: "behindernd - unterstützend"
+        min: 1
+        max: 7
+      - label: "kompliziert - einfach"
+        min: 1
+        max: 7
+      - label: "ineffizient - effizient"
+        min: 1
+        max: 7
+      - label: "verwirrend - übersichtlich"
+        min: 1
+        max: 7
+      - label: "langweilig - spannend"
+        min: 1
+        max: 7
+      - label: "uninteressant - interessant"
+        min: 1
+        max: 7
+      - label: "konventionell - originell"
+        min: 1
+        max: 7
+      - label: "herkönnlich - neuartig"
+        min: 1
+        max: 7
+    image: "/static/images/placeholder_info.png"
+
+  - type: info
+    title: "Quiz"
+    text: "Nun folgt das Quiz, viel Glück!"
+    image: "/static/images/placeholder_info.png"
+    
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_1.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/Eingefügtes Bild (2).png"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/Eingefügtes Bild.png"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/claudio-schwarz-Axx5fWxrcFA-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/filipe-freitas-r9-0WbhZYWI-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_0.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/mehdi-el-marouazi-AGA5j_XKXfw-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/pascal-debrunner-H-RjK02uZ_k-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/peter-thomas-3sOs1jSpbU4-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_3.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/peter-thomas-zlIEaRjDo_Q-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/sand-crain-8jk64drEMcw-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_4.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_7.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: info
+    title: "Vielen Dank!"
+    text: "Sie haben alle Fragen beantwortet. Ihre Antworten wurden gespeichert."
+    image: "/static/images/placeholder_info.png"
