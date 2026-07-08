@@ -1,11 +1,11 @@
 pages:
   - type: info
     title: "Datenschutzerklärung"
-    text: "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Im Rahmen dieses Quiz werden folgende Daten erhoben:\n\n• Session-ID: Eine zufällig generierte, eindeutige Kennung zur Zuordnung Ihrer Antworten\n• Quiz-Antworten: Ihre Auswahl bei den Quizfragen (richtig/falsch)\n• Eingaben: Von Ihnen eingegebene Zahlenwerte und Slider-Einstellungen\n\nDiese Daten werden ausschließlich für statistische Auswertungen und zur Verbesserung des Quiz verwendet. Es werden keine personenbezogenen Daten wie Name, E-Mail oder IP-Adresse gespeichert.\n\nMit dem Klicken auf 'Weiter' stimmen Sie der Datenverarbeitung zu. Sie können das Quiz jederzeit abbrechen, indem Sie das Browserfenster schließen."
+    text: "Die folgende Studie \"Ki oder Nicht?\" ist Teil einer studentischen Forschungsarbeit im Rahmen der Veranstaltung „Empirical Evaluation of Interactive Systems“ an der Hochschule für Technik und Wirtschaft des Saarlandes.\n Die Teilnahme an der Studie ist freiwillig. Die Einwilligung zur Teilnahme an dieser Studie kann jederzeit und ohne Angabe von Gründen bis zum Ende der Datenerhebung widerrufen werden, indem die Umfrage durch das Schließen des Browserfensters beendet wird. Alle unvollständigen Datensätze werden von uns gelöscht. Nach dem Ende der Datenerhebung können die gesetzlichen Rechte auf Widerruf, Auskunft, Berichtigung, Sperrung und Löschung nicht mehr wahrgenommen werden, weil die Daten nicht mehr der betroffenen Person zugeordnet werden können.\n Nach der Einwilligung zur Datenerfassung werden folgende Daten erhoben und ausschließlich anonymisiert verarbeitet:\n -	Eingaben in der Onlineumfrage\n Aus technischen Gründen werden u.a. folgende Daten, die vom Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt werden, erfasst (sogenannte Serverlogfiles): \n -	Browsertyp und -version\n -	verwendetes Betriebssystem\n -	Webseite, von der zuvor besucht wurde (Referrer URL)\n -	Datum und Uhrzeit des Zugriffs\n -	Die IP-Adresse.\n Diese anonymen Daten werden nicht mit den Umfragedaten zusammengeführt."
 
   - type: info
     title: "Willkomen bei -Ki oder Nicht-"
-    text: "In diesem Quiz geht es darum, ob sie Ki-generierte Bilder von echten unterscheiden können."
+    text: "In diesem Quiz geht es darum, ob sie -nach einem Training- Ki-generierte Bilder von echten unterscheiden können."
     image: "/static/images/placeholder_info.png"
 
   - type: input
