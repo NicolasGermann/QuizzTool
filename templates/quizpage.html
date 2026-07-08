@@ -76,13 +76,13 @@
         <div class="quiz-buttons">
             {% if page.answer_left %}
             <form hx-post="/answer/{{ page_index }}" hx-swap="none">
-                <input type="hidden" name="answer" value="{{ 'left' if has_two_images else page.answer_left }}">
+                <input type="hidden" name="answer" value="left">
                 <button type="submit" class="btn btn-primary btn-lg">{{ page.answer_left }}</button>
             </form>
             {% endif %}
             {% if page.answer_right %}
             <form hx-post="/answer/{{ page_index }}" hx-swap="none">
-                <input type="hidden" name="answer" value="{{ 'right' if has_two_images else page.answer_right }}">
+                <input type="hidden" name="answer" value="right">
                 <button type="submit" class="btn btn-primary btn-lg">{{ page.answer_right }}</button>
             </form>
             {% endif %}

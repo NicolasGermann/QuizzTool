@@ -204,6 +204,104 @@ pages:
     text_wrong: "Der Dieselpreis ist nicht realistisch."
     image: "/static/images/realism.png"
 
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_1.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/Eingefügtes Bild (2).png"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/Eingefügtes Bild.png"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/claudio-schwarz-Axx5fWxrcFA-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/filipe-freitas-r9-0WbhZYWI-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_0.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/mehdi-el-marouazi-AGA5j_XKXfw-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/pascal-debrunner-H-RjK02uZ_k-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/peter-thomas-3sOs1jSpbU4-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_3.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/peter-thomas-zlIEaRjDo_Q-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/sand-crain-8jk64drEMcw-unsplash.jpg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "right"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_4.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
+  - type: quiz
+    question: "Ist dieses Bild KI-generiert?"
+    image_left: "/image_data/0_7.jpeg"
+    answer_left: "Ja"
+    answer_right: "Nein"
+    correct_answer: "left"
+
   - type: slider
     title: "Bewertung"
     text: "Wie Bewerten sie die Erfahrung mit unserem Trainingstool"
