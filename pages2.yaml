@@ -47,6 +47,36 @@ pages:
 
       - Texte: Manche KI-Bildgeneratoren haben Schwierigkeiten, Text korrekt darzustellen.  Kontrollieren Sie, ob Texte auf Schildern oder anderen Objekten korrekt und schlüssig dargestellt werden. Rechtschreibfehler und unstimmige Proportionen können ebenso wie unscharfe Buchstaben oder inkonsistente Farben auf KI-Erzeugung hindeuten.
 
+  - type: slider
+    title: "Bewertung"
+    text: "Wie Bewerten sie die Erfahrung mit unserem Trainingstool"
+    sliders:
+      - label: "behindernd - unterstützend"
+        min: 1
+        max: 7
+      - label: "kompliziert - einfach"
+        min: 1
+        max: 7
+      - label: "ineffizient - effizient"
+        min: 1
+        max: 7
+      - label: "verwirrend - übersichtlich"
+        min: 1
+        max: 7
+      - label: "langweilig - spannend"
+        min: 1
+        max: 7
+      - label: "uninteressant - interessant"
+        min: 1
+        max: 7
+      - label: "konventionell - originell"
+        min: 1
+        max: 7
+      - label: "herkönnlich - neuartig"
+        min: 1
+        max: 7
+    image: "/static/images/placeholder_info.png"
+
   - type: info
     title: "Quiz"
     text: "Nun folgt das Quiz, viel Glück!"
